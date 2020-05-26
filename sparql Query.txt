@@ -1,0 +1,16 @@
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX dbpedia-owl: <http://dbpedia.org/ontology/>
+PREFIX dbpprop-id: <http://id.dbpedia.org/property/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+
+select DISTINCT ?nama_tokoh, ?asal_lahir ,?unit_angkatan
+where
+{
+    ?nama dcterms:subject <http://id.dbpedia.org/page/Daftar_tokoh_militer_Indonesia>.
+    ?nama rdfs:label ?nama_tokoh.
+    ?nama dbpedia-owl:birthPlace ?asal_lahir.
+    ?tokoh dbpprop-id:occupation ?angkatan.
+    ?unit_angkatan rdfs:label ?angkatan.
+    ?asal_lahir rdfs:label ?asal.
+}
